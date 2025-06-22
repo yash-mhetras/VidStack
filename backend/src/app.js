@@ -22,7 +22,7 @@ app.get("/",(req,res)=>{
 
 const start=async()=>{
     app.set("mongo_user")
-    const connectionDb=await mongoose.connect("mongodb+srv://yashrm2005:OmZuAAvCdVedjEbP@cluster0.f56ggat.mongodb.net/vidstack?retryWrites=true&w=majority&tls=true");
+    const connectionDb=await mongoose.connect("mongodb+srv://yashrm2005:OmZuAAvCdVedjEbP@cluster0.f56ggat.mongodb.net/);
     console.log(`Mongo connected DB host: ${connectionDb.connection.host}`)
     server.listen(app.get("port"),()=>{
     console.log("server listening");
