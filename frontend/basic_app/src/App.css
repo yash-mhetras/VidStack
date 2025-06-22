@@ -1,0 +1,183 @@
+/* Base styles (for desktop and large screens) */
+.landingcontainer {
+  width: 100vw;
+  height: 100vh;
+  background: url("/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  overflow-x: hidden;
+}
+
+.landingcontainer nav {
+  padding-inline: 1.2rem;
+  padding-block: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.landingcontainer nav h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.landingcontainer nav .navList {
+  display: flex;
+  gap: 1.6rem;
+  cursor: pointer;
+  flex-wrap: wrap;
+}
+
+.landingmaincontainer {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 3rem;
+  height: 80vh;
+  align-items: center;
+}
+
+.landingmaincontainer > div:nth-child(1) {
+  font-size: 2.2rem;
+  max-width: 50%;
+}
+
+.landingmaincontainer > div:nth-child(1) div[role='button'] {
+  background: #D97500;
+  width: fit-content;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  margin-top: 1.9rem;
+}
+
+.landingmaincontainer > div:nth-child(1) div[role='button'] a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.7rem;
+}
+
+.landingmaincontainer > div:nth-child(2) img {
+  height: 70vh;
+  width: auto;
+  max-width: 100%;
+}
+
+/* =====================
+   Medium Devices (Tablet)
+===================== */
+@media screen and (max-width: 1024px) {
+  .landingmaincontainer {
+    flex-direction: column;
+    padding-inline: 2rem;
+    text-align: center;
+    justify-content: center;
+    height: auto;
+    gap: 2rem;
+    padding-top: 4rem;
+  }
+
+  .landingmaincontainer > div:nth-child(1) {
+    font-size: 1.8rem;
+    max-width: 100%;
+  }
+
+  .landingmaincontainer > div:nth-child(1) div[role='button'] {
+    margin: 1.2rem auto 0 auto;
+  }
+
+  .landingmaincontainer > div:nth-child(2) img {
+    height: 50vh;
+  }
+}
+
+/* =====================
+   Small Devices (Mobile)
+===================== */
+@media screen and (max-width: 600px) {
+  .landingcontainer nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .landingcontainer nav .navList {
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+  }
+
+  .landingmaincontainer > div:nth-child(1) {
+    font-size: 1.4rem;
+  }
+
+  .landingmaincontainer > div:nth-child(1) div[role='button'] a {
+    font-size: 1.2rem;
+  }
+
+  .landingmaincontainer > div:nth-child(2) img {
+    height: 40vh;
+  }
+}
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 20px;
+  text-align: center;
+  height: 40px;
+  
+
+}
+.meetContainer {
+  display: flex;
+  padding-inline: 20px;
+  height: 80vh;
+  gap: 10vw;
+  justify-content: center;
+}
+
+
+
+.leftPanel {
+  height: 100%;
+ 
+
+ 
+
+}
+
+.rightPanel {
+  display: flex;
+  align-items: center;
+}
+
+.rightPanel > img {
+  width: 30vw;
+  height: auto;
+  border-radius: 20px;
+}
+.main{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+}
+.leftsub{
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  gap: 20px;
+}
+.authcontainer{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background:url("/backgroundimg.avif");
+    background-repeat: no-repeat;
+  background-size: cover;
+
+}
