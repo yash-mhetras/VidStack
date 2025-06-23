@@ -6,6 +6,10 @@ import cors from "cors";
 import  {connectToSocket}  from "./controllers/Socketmanager.js";
 import userRoutes from "./routes/users.routes.js"
 import { userInfo } from "node:os";
+import dotenv from 'dotenv';
+dotenv.config();
+
+
 const app=express();
 const server = createServer(app);
 const io = connectToSocket(server);
@@ -21,8 +25,9 @@ app.get("/",(req,res)=>{
 })
 
 const start=async()=>{
-    app.set("mongo_user")
-    const connectionDb=await mongoose.connect("mongodb+srv://yashrm2005:OmZuAAvCdVedjEbP@cluster0.f56ggat.mongodb.net/");
+    app.set("mongo_user");
+    console.log(process.env.mongo_url)
+    const connectionDb=await mongoose.connect(process.env.mongo_url);
     console.log(`Mongo connected DB host: ${connectionDb.connection.host}`)
     server.listen(app.get("port"),()=>{
     console.log("server listening");
