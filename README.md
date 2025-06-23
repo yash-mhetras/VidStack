@@ -13,7 +13,7 @@ VidStack is a full-stack real-time video conferencing web application , built fo
 - 🖥️ **Screen Sharing** – Share screen with other participants instantly.
 - 📜 **Meeting History** – Stores and retrieves past meeting codes.
 - 🧑‍💼 **Guest Mode** – Join meetings without authentication.
-- ✅ **Responsive UI** – Optimized for both desktop and mobile devices.
+- ✅ **Fully deployed**-functional on Windows desktops (optimized for Chromium-based browsers).
 
 ---
 
