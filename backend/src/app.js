@@ -26,7 +26,7 @@ app.get("/",(req,res)=>{
 
 const start=async()=>{
     app.set("mongo_user");
-    console.log(process.env.mongo_url)
+    
     const connectionDb=await mongoose.connect(process.env.mongo_url);
     console.log(`Mongo connected DB host: ${connectionDb.connection.host}`)
     server.listen(app.get("port"),()=>{
