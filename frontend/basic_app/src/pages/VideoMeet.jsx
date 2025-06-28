@@ -110,9 +110,7 @@ export default function VideoMeet() {
         for (let id in connections) {
             if (id === socketIdRef.current) continue
 
-            window.localStream.getTracks().forEach(track => {
-  connections[id].addTrack(track, window.localStream);
-});
+            connections[id].addStream(window.localStream)
 
             connections[id].createOffer().then((description) => {
                 console.log(description)
@@ -138,13 +136,7 @@ export default function VideoMeet() {
             localVideoref.current.srcObject = window.localStream
 
             for (let id in connections) {
-                  connections[id].getSenders().forEach(sender => {
-            connections[id].removeTrack(sender);
-        });
-
-                window.localStream.getTracks().forEach(track => {
-  connections[id].addTrack(track, window.localStream);
-});
+                connections[id].addStream(window.localStream)
 
                 connections[id].createOffer().then((description) => {
                     connections[id].setLocalDescription(description)
@@ -254,7 +246,7 @@ export default function VideoMeet() {
                         }
                     }
 
-                    connections[socketListId].ontrack= (event) => {
+                    connections[socketListId].onaddstream = (event) => {
                         console.log("BEFORE:", videoRef.current);
                         console.log("FINDING ID: ", socketListId);
 
@@ -292,15 +284,11 @@ export default function VideoMeet() {
 
                     
                     if (window.localStream !== undefined && window.localStream !== null) {
-                        window.localStream.getTracks().forEach(track => {
-  connections[socketListId].addTrack(track, window.localStream);
-});
+                        connections[socketListId].addStream(window.localStream)
                     } else {
                         let blackSilence = (...args) => new MediaStream([black(...args), silence()])
                         window.localStream = blackSilence()
-                        window.localStream.getTracks().forEach(track => {
-  connections[socketListId].addTrack(track, window.localStream);
-});
+                        connections[socketListId].addStream(window.localStream)
                     }
                 })
 
@@ -309,14 +297,7 @@ export default function VideoMeet() {
                         if (id2 === socketIdRef.current) continue
 
                         try {
-                                  connections[id2].getSenders().forEach(sender => {
-            connections[id2].removeTrack(sender);
-        });
-
-        
-        window.localStream.getTracks().forEach(track => {
-            connections[id2].addTrack(track, window.localStream);
-        });
+                            connections[id2].addStream(window.localStream)
                         } catch (e) { }
 
                         connections[id2].createOffer().then((description) => {
@@ -353,13 +334,7 @@ export default function VideoMeet() {
         for (let id in connections) {
             if (id === socketIdRef.current) continue
 
-               connections[id].getSenders().forEach(sender => {
-                connections[id].removeTrack(sender);
-            });
-
-            window.localStream.getTracks().forEach(track => {
-              connections[id].addTrack(track, window.localStream);
-            });
+            connections[id].addStream(window.localStream)
 
             connections[id].createOffer().then((description) => {
                 connections[id].setLocalDescription(description)
@@ -534,4 +509,4 @@ export default function VideoMeet() {
 
     </div>
   )
-} 
+}  
